@@ -1,0 +1,71 @@
+<mvc:View
+    controllerName="landpage.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:tnt="sap.tnt"
+>
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page id="page" title="{i18n>title}">
+	<tnt:ToolPage id="toolPage">
+		<tnt:header>
+			<tnt:ToolHeader id = "TH">
+				<Image id = "IM" height="1.5rem"
+					   class="sapUiSmallMarginBegin"
+					   src="https://www.sap.com/dam/application/shared/logos/sap-logo-svg.svg" />
+				<Title id = "T1" level="H1" text="Product Name">
+					<layoutData>
+						<OverflowToolbarLayoutData id = "OT" shrinkable="true" />
+					</layoutData>
+				</Title>
+				<Title id = "T2" level="H3" titleStyle="H6" text="Second Title">
+					<layoutData>
+						<OverflowToolbarLayoutData id = "OT1" shrinkable="true" />
+					</layoutData>
+				</Title>
+				<ToolbarSpacer id = "TS" >
+					<layoutData>
+						<OverflowToolbarLayoutData id = "OT2" priority="NeverOverflow" minWidth="20px" />
+					</layoutData>
+				</ToolbarSpacer>
+				<tnt:ToolHeaderUtilitySeparator id = "OT3" />
+				<OverflowToolbarButton id = "OB1" text="Search" tooltip="Search" icon="sap-icon://search" type="Transparent" />
+				<OverflowToolbarButton id = "OB2"  text="Tasks" tooltip="Tasks" icon="sap-icon://circle-task" type="Transparent" />
+				<OverflowToolbarButton id = "OB3" text="Notifications" tooltip="Notifications" icon="sap-icon://bell" type="Transparent" />
+			</tnt:ToolHeader>
+		</tnt:header>
+		<tnt:mainContents>
+			<NavContainer id="pageContainer" initialPage="page1">
+				<pages>
+					<ScrollContainer
+						id="page1"
+						horizontal="false"
+						vertical="true"
+						height="100%">
+						<Text id = "TT1" text="Home" />
+					</ScrollContainer>
+					<ScrollContainer
+						id="page2"
+						horizontal="false"
+						vertical="true"
+						height="100%">
+						<Text id = "TT2"  text="Applications" />
+					</ScrollContainer>
+					<ScrollContainer
+						id="page3"
+						horizontal="false"
+						vertical="true"
+						height="100%">
+						<Text id = "TT3"  text="Users and Groups" />
+					</ScrollContainer>
+				</pages>
+			</NavContainer>
+		</tnt:mainContents>
+	</tnt:ToolPage>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>
