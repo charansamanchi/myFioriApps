@@ -66,6 +66,7 @@
 	</tnt:ToolPage>
                 </Page>
             </pages>
+  // test          
         </App>
     </Shell>
 </mvc:View>
