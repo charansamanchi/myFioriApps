@@ -1,0 +1,86 @@
+<mvc:View xmlns="sap.m" xmlns:f= "sap.f" xmlns:t="sap.ui.table" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.f.semantic" controllerName="techiasp.controller.Userlist">
+
+	<semantic:SemanticPage id="page" headerPinnable="false" toggleHeaderOnTitleClick="false">
+
+		<semantic:titleHeading>
+			<Title text="{i18n>listTitle}" level="H2"/>
+		</semantic:titleHeading>
+ 
+		<semantic:content>         
+			<Table id="table" width="auto" 
+            items="{
+					path: 'myModel>/Resources',
+					sorter: {
+						path: 'id',
+						descending: false
+					}
+				}"
+             noDataText="{worklistView>/tableNoDataText}"
+             	alternateRowColors="true"
+              busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingScrollToLoad="true" updateFinished=".onUpdateFinished"
+                   mode= "SingleSelectLeft" > 
+
+				<headerToolbar>
+                 
+					<OverflowToolbar>
+						<Title id="tableHeader" text="{worklistView>/worklistTableTitle}" level="H3"/>
+						<ToolbarSpacer/>
+						<Button xmlns="sap.m" type="Accept" text="Create" press=".onCreate" id="button0" ariaDescribedBy="acceptButtonDescription genericButtonDescription"/>
+						<Button xmlns="sap.m" type="Default" text="Upload" press=".onPress" id="button4" />
+                        <Button xmlns="sap.m" type="Reject" text="Delete" press=".onDelete" id="button2" />						
+                        <SearchField
+							id="searchField"
+							tooltip="Search by User Name"
+                            liveChange=".onSearch"
+                            placeholder="Enter User">
+							<layoutData>
+								<OverflowToolbarLayoutData
+									maxWidth="200px"
+									priority="NeverOverflow"/>
+							</layoutData>
+						</SearchField>
+					<content/>
+					</OverflowToolbar>
+                     
+				</headerToolbar>
+
+                <columns>
+                	<Column id="Userid">
+						<Text text="User ID" id="userid"/>
+					</Column>
+					<Column id="User">
+						<Text text="User Name" id="nameColumnTitle"/>
+					</Column>
+                    <Column id="email" hAlign="End">
+						<Text text="Email" id="Email" />                      
+					</Column>
+                    <Column id="status" hAlign="End">
+						<Text text="Status" id="Status"/>
+					</Column>
+                    <Column id="type1" hAlign="End">
+						<Text text="Type" id="type"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+                            <Text text= "{myModel>id}"></Text>
+							<Text text="{myModel>userName}"/>                         
+                            <ObjectAttribute text="{path: 'myModel>emails', formatter:'.formatEmail'}"/>
+                            <Text text="{myModel>active}"></Text>
+                            <Text text="{myModel>userType}"></Text>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</semantic:content>
+
+            
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
+		</semantic:sendEmailAction>
+
+
+	</semantic:SemanticPage>
+
+</mvc:View>

@@ -1,0 +1,149 @@
+{
+    "_version": "1.32.0",
+    "sap.app": {
+        "id": "techiasp",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "ach": "ach",
+        "crossNavigation": {
+            "inbounds": {
+                "techiasp-inbound": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "techiasobj",
+                    "action": "display",
+                    "title": "{{flpTitle}}",
+                    "subTitle": "{{flpSubtitle}}",
+                    "icon": ""
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "sap-icon://task",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": false,
+        "rootView": {
+            "viewName": "techiasp.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "app"
+        },
+        "dependencies": {
+            "minUI5Version": "1.94.1",
+            "libs": {
+                "sap.ui.core": {},
+                "sap.m": {},
+                "sap.ui.layout": {},
+                "sap.f": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "techiasp.i18n.i18n"
+                }
+            },
+            "myModel" : {
+            "type" : "sap.ui.model.json.JSONModel"
+        },
+        "uploadModel" : {
+            "type" : "sap.ui.model.json.JSONModel"
+        },
+        "errorLog" : {
+            "type" : "sap.ui.model.json.JSONModel"
+        },
+             "createUserbody":{
+                "type" : "sap.ui.model.json.JSONModel",
+                "uri": "model/createuser.json"                
+
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "techiasp.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "pattern": "",
+                    "name": "targetUserlist",
+                    "target": ["targetUserlist"]
+                },
+                 {
+					"pattern": "fileUpload",
+					"name": "fileUpload",
+                    "target": ["fileUpload"]
+				},
+                {
+					"pattern": "createUser",
+					"name": "createUser",
+                    "target": ["createUser"]
+                }
+            ],
+            "targets": {
+                "targetUserlist": {
+                    "transition": "slide",
+                    "viewlevel": 1,
+                    "viewId": "Userlist",
+                    "viewName": "Userlist"
+                },
+                "fileUpload": {
+					"viewName": "FileUpload",
+					"viewId": "fileUpload",
+					"viewLevel": 2,
+					"title": "File Upload"
+				},
+                "createUser": {
+					"viewName": "CreateUser",
+					"viewId": "createUser",
+					"viewLevel": 2,
+					"title": "Create User"
+                }
+            }
+        }
+    },
+    "sap.cloud": {
+        "public": true,
+        "service": "techiasapp"
+    }
+}

@@ -1,0 +1,67 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:semantic="sap.f.semantic" controllerName="techiasp.controller.CreateUser">
+
+
+					<VBox class="sapUiSmallMargin">
+		<f:SimpleForm id="SimpleFormToolbar" editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false" ariaLabelledBy="Title1">
+			<f:toolbar>
+				<Toolbar id="TB1">
+					<Title id="Title1" text="Address"/>
+					<ToolbarSpacer/>
+					<Button icon="sap-icon://settings"/>
+				<content>
+                <Button xmlns="sap.m" type="Accept" text="Save" press=".onSave" id="button3"/>
+				<Button xmlns="sap.m" type="Reject" text="Cancel" press=".onCancel" id="button1"/>
+                <Button xmlns="sap.m" type="Default" text="Clear" press=".onClear" id="button5"/>
+				</content>
+				</Toolbar>
+			</f:toolbar>
+			<f:content>
+				<Toolbar ariaLabelledBy="Title2">
+					<Title id="Title2" text="User Basic Data"/>
+					<ToolbarSpacer/>
+					<Button icon="sap-icon://settings"/>
+				</Toolbar>
+				<Label text="User Name" required="true" id="user"/>
+				<Input value=" " id="user1"/>
+                <Label text="Display Name" required="true" id="display"/>
+				<Input value=" " id="display1"/>
+				<Label text="Family/Middle Name"/>
+				<Input value=" " id="family" required="true">
+				</Input>
+				<Input value=" " id="middle">
+					<layoutData>
+						<l:GridData span="XL2 L1 M3 S4"/>
+					</layoutData>
+				</Input>
+                <Label text="Email" required="true" id="email"/>
+				<Input value="@sap.com" id="email1"/>
+				
+				<Toolbar ariaLabelledBy="Title3">
+					<Title id="Title3" text="Contact Address"/>
+					<ToolbarSpacer/>
+					<Button icon="sap-icon://settings"/>
+				</Toolbar>
+                <Label text="Street/No."/>
+                <Input value=" ">
+				</Input>
+				<Input value=" ">
+					<layoutData>
+						<l:GridData span="XL2 L1 M3 S4"/>
+					</layoutData>
+				</Input>
+				<Label text="ZIP Code/City"/>
+				<Input value=" ">
+					<layoutData>
+						<l:GridData span="XL2 L1 M3 S4"/>
+					</layoutData>
+				</Input>
+				<Input value=" "/>
+                <Label text="Country"/>
+				<Input value=" ">
+				</Input>
+			</f:content>
+		</f:SimpleForm>
+	</VBox>
+			
+
+</mvc:View>

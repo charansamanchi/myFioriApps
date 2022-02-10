@@ -1,0 +1,28 @@
+
+{
+    "userName": " ",
+    "name": {
+        "givenName": " ",
+        "familyName": " "
+    },
+    "emails": [
+        {
+            "value": " "
+        }
+    ],
+    "displayName": " ",
+    "active": true,
+    "sendMail": "false",
+    "urn:sap:cloud:scim:schemas:extension:custom:2.0:User": {
+        "attributes": [
+            {
+                "name": "customAttribute1",
+                "value": "Home Address2"
+            },
+            {
+                "name": "customAttribute2",
+                "value": "Telephone2"
+            }
+        ]
+    }
+}

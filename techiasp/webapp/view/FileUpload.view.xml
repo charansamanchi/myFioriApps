@@ -1,0 +1,65 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+ xmlns:l="sap.ui.layout.form"
+  xmlns:u = "sap.ui.unified"
+  xmlns:semantic="sap.f.semantic" 
+  controllerName="techiasp.controller.FileUpload">
+						
+<Page title="CSV File Upload">
+        <content>
+            <l:SimpleForm editable="true">
+                <l:content>
+                    <Label text="File Name"></Label>
+                    <VBox>
+                        <u:FileUploader id="idfileUploader" width="50%"
+                        sameFilenameAllowed="false"
+                         placeholder="Choose a CSV file" tooltip="Upload your csv file"
+                        style="Emphasized">
+                        </u:FileUploader>
+                        <Button text="Upload" press=".onUpload" icon="sap-icon://upload" />
+                        <Button type="Accept" text="Save" press=".onSave" /> 
+                        <Button  type="Reject" text="Cancel" press=".onback"/>                  
+                    </VBox>
+                </l:content>
+            </l:SimpleForm>
+            <Table id="idTable" items="{uploadModel>/}" alternateRowColors="true">
+            	<headerToolbar>
+                 
+					<OverflowToolbar>
+						<Title id="tableHeader" level="H3"/>
+						<ToolbarSpacer/>
+                        <Button id="errorId" text="Error Log" press=".onDownload" enabled="false"
+                                icon="sap-icon://download" type="Reject" />					
+					<content/>
+					</OverflowToolbar>
+                     
+				</headerToolbar>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{uploadModel>User Name}"></Text>
+                            <Text text="{uploadModel>Family Name}"></Text>
+                            <Text text="{uploadModel>Display Name}"></Text>
+                            <Text text="{uploadModel>Email}"></Text>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+                <columns>
+                    <Column>
+                        <Text text="User Name"></Text>
+                    </Column>
+                    <Column>
+                        <Text text="Family Name"></Text>
+                    </Column>
+                    <Column>
+                        <Text text="Display Name"></Text>
+                    </Column>
+                    <Column>
+                        <Text text="Email"></Text>
+                    </Column>
+                </columns>
+            </Table>
+        </content>
+    </Page>
+
+    
+</mvc:View>
